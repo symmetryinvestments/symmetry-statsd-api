@@ -1,0 +1,8 @@
+name "dstatsd"
+description "client for etsy statsd by burner"
+authors "burner"
+copyright "c 2016 burner"
+license "lgpl3"
+dependency "vibe-d" version="~>0.7.29"
+dependency "fixedsizearray" version="~>0.0.1"
+targetType "executable"
