@@ -1,3 +1,4 @@
+///
 module kaleidc.api.dstatsd;
 
 import std.format : formattedWrite;
@@ -7,11 +8,14 @@ import vibe.core.net;
 
 import fixedsizearray;
 
-struct Counter {
+///
+struct Counter
+{
 	const string name;
 	const long change;
 	const double sampleRate;
 
+	///
 	this(const string name, const long change = 1, 
 			const double sampleRate = double.nan) 
 			@safe pure nothrow @nogc
@@ -21,6 +25,7 @@ struct Counter {
 		this.sampleRate = sampleRate;
 	}
 
+	///
 	void toString(Buf)(Buf buf, const string prefix) const {
 		import std.math : isNaN;
 		if(this.sampleRate.isNaN()) {
@@ -33,6 +38,7 @@ struct Counter {
 	}
 }
 
+///
 struct Gauge {
 	const string name;
 	const ulong value;
@@ -49,6 +55,7 @@ struct Gauge {
 	}
 }
 
+///
 struct Timer {
 	const string name;
 	const ulong time;
@@ -65,7 +72,9 @@ struct Timer {
 	}
 }
 
-struct Histogram {
+///
+struct Histogram
+{
 	const string name;
 	const ulong value;
 
@@ -81,7 +90,9 @@ struct Histogram {
 	}
 }
 
-struct Meter {
+///
+struct Meter
+{
 	const string name;
 	const ulong increment;
 
@@ -97,7 +108,9 @@ struct Meter {
 	}
 }
 
-struct Set {
+///
+struct Set
+{
 	const string name;
 	const long value;
 
@@ -113,7 +126,9 @@ struct Set {
 	}
 }
 
-struct ScopeTimer {
+///
+struct ScopeTimer
+{
 	import core.time;
 
 	string name;
@@ -134,7 +149,9 @@ struct ScopeTimer {
 
 }
 
-class StatsD {
+///
+class StatsD
+{
 	private string address;
 	private ushort port;
 	private string prefix;
@@ -215,7 +232,9 @@ class StatsD {
 
 }
 
-unittest {
+///
+unittest
+{
 	{
 		FixedSizeArray!(char,128) textbuf;
 		string h = "Hello World";
@@ -230,6 +249,8 @@ unittest {
 		assert(cast(string)textbuf == t, cast(string)textbuf);
 	}
 }
+
+///
 int main(string[] args)
 {
 	import std.stdio;
