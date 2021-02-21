@@ -192,7 +192,7 @@ class StatsD
 		}
 
 		try {
-			this.connection.send(cast(ubyte[])(buf));
+			this.connection.send(cast(ubyte[256*values.length])(buf.store));
 		} catch(Exception e) {
 			this.handleException(e);
 		}

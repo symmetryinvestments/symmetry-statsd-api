@@ -1,0 +1,8 @@
+name "symmetry-dstatsd-api"
+description "client for etsy statsd by burner"
+authors "Robert Schadek"
+copyright "c 2016 burner"
+license "lgpl3"
+dependency "vibe-d" version="~>0.9.3"
+dependency "fixedsizearray" version="~>1.2.0"
+targetType "executable"
