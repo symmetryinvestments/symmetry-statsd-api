@@ -1,4 +1,4 @@
-name "symmetry-dstatsd-api"
+name "symmetry-statsd-api"
 description "client for etsy statsd by burner"
 authors "Robert Schadek"
 copyright "c 2016 burner"
